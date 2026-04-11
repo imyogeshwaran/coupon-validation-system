@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coupon-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: coupon
+  template:
+    metadata:
+      labels:
+        app: coupon
+    spec:
+      containers:
+        - name: coupon-container
+          image: coupon-app
+          ports:
+            - containerPort: 8080
